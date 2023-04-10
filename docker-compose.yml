@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: secret
+    ports:
+      - "27017:27017"
+    networks:
+      - homenet
+
+  flask-local-app:
+    container_name: flask-local-app
+    image: clearcb/flask-app:mongolocal
+    environment:
+      MONGO_ATLAS_URI: mongodb://mongoadmin:secret@mongo:27017/
+    ports:
+      - "5000:5000"
+    networks:
+      - homenet
+
+networks:
+  homenet:
+
+volumes:
+  mongodb_data:

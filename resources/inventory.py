@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify
 from services.Services import Services
 from repository.models.Item import Item
 from repository.models.check_item import correct_update_statement
+from repository.Database import Database
 
 
 # Creating a blueprint
@@ -37,3 +38,15 @@ def update_inventory():
     inventory = Services.inventory()
 
     return jsonify(inventory)
+
+
+@inventory_bp.route("/inventory/initdb", methods=["POST"])
+def init_inventory():
+    Database.init_db()
+    return {"Message": "Database initiated"}
+
+
+@inventory_bp.route("/inventory/dropdb", methods=["POST"])
+def drop_inventory():
+    Database.drop_collection()
+    return {"Message": "Database dropped"}

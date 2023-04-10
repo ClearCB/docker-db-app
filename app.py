@@ -4,8 +4,6 @@ from flask_cors import CORS
 from resources.inventory import inventory_bp
 from resources.items import items_bp
 
-from repository.Database import Database
-
 
 def init_app():
     app = Flask(__name__)
