@@ -3,6 +3,7 @@ from flask_cors import CORS
 
 from resources.inventory import inventory_bp
 from resources.items import items_bp
+from resources.form import html_bp
 
 
 def init_app():
@@ -12,6 +13,7 @@ def init_app():
 
     app.register_blueprint(inventory_bp)
     app.register_blueprint(items_bp)
+    app.register_blueprint(html_bp)
 
     return app
 

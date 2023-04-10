@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='base.css') }}" rel="stylesheet" type="text/css">
+    <script src="{{url_for('static', filename='code.js')}}"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Tu tienda</h1>
+    </header>
+    <main>
+        <div class="formularios">
+
+            <label for="id">Id:</label>
+            <input type="text" id="id" name="id" required>
+
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="sell_in">Sell in: </label>
+            <input type="text" id="sell_in" name="sell_in" required>
+
+            <label for="quality">Quality: </label>
+            <input type="text" id="quality" name="quality" required>
+
+            <label for="item_type">Item type: </label>
+            <input type="text" id="item_type" name="item_type" required>
+
+            <button onclick="insertarItem()">Insertar</button>
+        </div>
+        <div id="itemsInsert"></div>
+        <div class="formularios">
+            <input type="text" id="ids" name="ids" placeholder="Id para Buscar" required>
+            <button onclick="buscarItem()">Buscar</button>
+        </div>
+        <div id="items"></div>
+        <div class="formularios">
+            <input type="text" id="id_eliminar" name="id_eliminar" placeholder="Id para Eliminar" required>
+            <button onclick="deleteItem()">Eliminar</button>
+        </div>
+        <div id="itemsd"></div>
+    </main>
+
+    <footer></footer>
+</body>
+
+</html>
