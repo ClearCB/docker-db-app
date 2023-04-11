@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  mongo:
+  db:
     container_name: mongo
     image: mongo
     volumes:
@@ -14,7 +14,7 @@ services:
     networks:
       - homenet
 
-  flask-local-app:
+  api:
     container_name: flask-local-app
     image: clearcb/flask-app:mongolocal
     environment:
