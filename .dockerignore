@@ -18,3 +18,5 @@ __pycache__
 doc
 .coverage
 bandit_report.txt
+test
+test/
